@@ -27,7 +27,7 @@ export default {
                     }
                 }
              catch (error) {
-                if (error.response && error.response.status === 401) {
+                if (error.response && error.response.status === 401 || error.response.status === 404) {
                     alert('Tên đăng nhập hoặc mật khẩu không đúng. Vui lòng thử lại.');
                 } else {
                     this.handleError(error);

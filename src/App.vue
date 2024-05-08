@@ -1,7 +1,7 @@
 <script>
 import AppHeader from "@/components/AppHeader.vue";
 import AppFooter from "@/components/AppFooter.vue";
-import AuthService from '../src/services/AuthService.js';
+import AuthService from '../src/services/AuthService';
 export default {
   components: {
     AppHeader,
@@ -12,9 +12,9 @@ export default {
         isAuthenticated: AuthService.isAuthenticated,
       };
     },
-    watch: {
-      '$route': 'checkAuthentication',
-    },
+    // watch: {
+    //   '$route': 'checkAuthentication',
+    // },
     methods: {
       checkAuthentication() {
         AuthService.checkAuthentication();
@@ -32,22 +32,25 @@ export default {
       },
     },
     create() {
-      this.checkAuthentication();
+      // this.checkAuthentication();
     }
 };
 </script>
 <template>
   <div id="app">
     <AppHeader />
-    <div class="container mt-3 p-3">
-      <router-view />
-    </div>
-    <AppFooter />
+    <main style="margin-top: 58px;">
+      <div class="container pt-4">
+        <router-view />
+      </div>
+    </main>
+    <!-- <AppFooter /> -->
   </div>
 </template>
 <style>
-.page {
-  max-width: 400px;
-  margin: auto;
+@media (min-width: 991.98px) {
+  main {
+    padding-left: 240px;
+  }
 }
 </style>
